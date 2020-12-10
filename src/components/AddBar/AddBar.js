@@ -28,7 +28,8 @@ const AddBar = ({ setMediaList }) => {
     const json = await res.json();
 
     //modify object
-    setMediaSearchResult(json.map(({ id, name }) => ({ id, name })));
+    json.length &&
+      setMediaSearchResult(json.map(({ id, name }) => ({ id, name })));
   }
 
   const handleClickAddMedia = () => {
@@ -57,8 +58,12 @@ const AddBar = ({ setMediaList }) => {
         <input type="text" onInput={handleInput} value={input} />
         <select onChange={handleChange}>
           <option value="games">Games</option>
-          <option value="tv">TV Shows</option>
-          <option value="movies">Movies</option>
+          <option disabled value="tv">
+            TV Shows
+          </option>
+          <option disabled value="movies">
+            Movies
+          </option>
         </select>
         <button onClick={handleClickAddMedia}>Add</button>
       </div>

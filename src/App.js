@@ -3,13 +3,7 @@ import AddBar from './components/AddBar/AddBar';
 import MediaTable from './components/MediaTable/MediaTable';
 
 const App = () => {
-  const [mediaList, setMediaList] = useState([
-    {
-      name: 'pokemon',
-      releaseDate: 1,
-      rating: 5,
-    },
-  ]);
+  const [mediaList, setMediaList] = useState([]);
   return (
     <div>
       <h1>Media Organizer</h1>
