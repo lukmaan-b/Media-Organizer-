@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MediaTable = ({ mediaList }) => {
+const MediaTable = ({ mediaList, setMediaList }) => {
   return (
     mediaList.length > 0 && (
       <table>
@@ -17,6 +17,17 @@ const MediaTable = ({ mediaList }) => {
               <td>{name}</td>
               <td>{new Date(releaseDate).toLocaleDateString()}</td>
               <td>{rating}</td>
+              <td>
+                <button
+                  onClick={() =>
+                    setMediaList((prevState) =>
+                      prevState.filter((media) => media.id !== id)
+                    )
+                  }
+                >
+                  ❌
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

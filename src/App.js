@@ -9,7 +9,7 @@ const App = () => {
     <div>
       <h1>Media Organizer</h1>
       <AddBar setMediaList={setMediaList} />
-      <MediaTable mediaList={mediaList} />
+      <MediaTable mediaList={mediaList} setMediaList={setMediaList} />
     </div>
   );
 };
