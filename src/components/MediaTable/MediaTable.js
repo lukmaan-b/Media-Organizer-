@@ -15,7 +15,7 @@ const MediaTable = ({ mediaList }) => {
           {mediaList.map(({ name, releaseDate, rating }) => (
             <tr>
               <td>{name}</td>
-              <td>{releaseDate}</td>
+              <td>{new Date(releaseDate).toLocaleDateString()}</td>
               <td>{rating}</td>
             </tr>
           ))}

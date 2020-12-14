@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
+import { MediaSearchResult } from '../MediaSearchResult/MediaSearchResult';
 
 let timer;
 
 const AddBar = ({ setMediaList }) => {
-  const [mediaType, setMediaType] = useState();
+  const [mediaType, setMediaType] = useState('games');
   const [mediaSearchResult, setMediaSearchResult] = useState([]);
   const [input, setInput] = useState('');
   const [selectedMedia, setSelectedMedia] = useState();
@@ -17,7 +18,7 @@ const AddBar = ({ setMediaList }) => {
     setInput(value);
     timer = setTimeout(() => {
       searchMedia(value);
-    }, 1000);
+    }, 500);
   };
 
   async function searchMedia(val) {
@@ -36,27 +37,11 @@ const AddBar = ({ setMediaList }) => {
     setMediaList((prevState) => [...prevState, selectedMedia]);
   };
 
-  const handleClickChangeInput = async ({ target }) => {
-    const name = target.dataset.name;
-    const id = target.dataset.id;
-
-    const res = await fetch(`https://api.opencritic.com/api/game/${id}`);
-    const json = await res.json();
-    const obj = {
-      id,
-      name,
-      rating: json.averageScore,
-      releaseDate: json.Platforms[0].releaseDate,
-    };
-    setInput(name);
-    setSelectedMedia(obj);
-    setMediaSearchResult([]);
-  };
   return (
     <div>
       <div>
         <input type="text" onInput={handleInput} value={input} />
-        <select onChange={handleChange}>
+        <select onChange={handleChange} selected={mediaType}>
           <option value="games">Games</option>
           <option disabled value="tv">
             TV Shows
@@ -68,16 +53,12 @@ const AddBar = ({ setMediaList }) => {
         <button onClick={handleClickAddMedia}>Add</button>
       </div>
       <div>
-        {mediaSearchResult.length > 0 &&
-          mediaSearchResult.map((media) => (
-            <button
-              onClick={handleClickChangeInput}
-              data-name={media.name}
-              data-id={media.id}
-            >
-              {media.name}
-            </button>
-          ))}
+        <MediaSearchResult
+          setInput={setInput}
+          setSelectedMedia={setSelectedMedia}
+          mediaSearchResult={mediaSearchResult}
+          setMediaSearchResult={setMediaSearchResult}
+        />
       </div>
     </div>
   );
