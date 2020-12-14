@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import AddBar from './components/AddBar/AddBar';
 import MediaTable from './components/MediaTable/MediaTable';
+import useLocalStorage from './hooks/useLocalStorage';
 
 const App = () => {
-  const [mediaList, setMediaList] = useState([]);
+  const [mediaList, setMediaList] = useLocalStorage('mediaList', []);
   return (
     <div>
       <h1>Media Organizer</h1>

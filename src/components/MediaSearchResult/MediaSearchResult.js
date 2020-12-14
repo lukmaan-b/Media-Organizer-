@@ -29,6 +29,7 @@ export const MediaSearchResult = ({
         mediaSearchResult.length > 0 &&
         mediaSearchResult.map((media) => (
           <button
+            key={media.id}
             onClick={handleClickChangeInput}
             data-name={media.name}
             data-id={media.id}
