@@ -1,0 +1,79 @@
+.searchBar {
+  border: none;
+  outline: none;
+  background-color: var(--main-light-color);
+  padding: 0.4rem 2rem;
+  height: 100%;
+  border-radius: 15px 0 0 15px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  font-weight: 500;
+}
+
+.addButton {
+  background-color: var(--main-dark-color);
+  color: white;
+  font-weight: 700;
+  border: none;
+  transition: background-color 300ms;
+  border-radius: 0 15px 15px 0;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.addButton:active {
+  background-color: #202327;
+}
+
+.addButton:hover {
+  background-color: #303235;
+}
+
+.mediaOption {
+  background-color: var(--main-primary-color);
+  border-radius: 15px 0 0 15px;
+  border: none;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btnGroup {
+  display: inline;
+  position: relative;
+  z-index: 100;
+  left: -10px;
+  appearance: none;
+  height: 100%;
+}
+
+.addBarContainer {
+  margin: 2rem 0;
+  height: 2.5rem;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 500px) {
+  .searchBar {
+    border-radius: 15px;
+  }
+
+  .btnGroup {
+    display: block;
+    position: initial;
+    margin: 1rem 0;
+  }
+
+  .addBarContainer {
+    display: block;
+  }
+
+  .addBarContainer {
+    height: 100%;
+  }
+}

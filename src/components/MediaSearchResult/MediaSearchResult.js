@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from './MediaSearchResult.module.css';
 export const MediaSearchResult = ({
   setSelectedMedia,
   setInput,
@@ -24,11 +24,12 @@ export const MediaSearchResult = ({
   };
 
   return (
-    <div>
+    <div className={styles.cardContainer}>
       {mediaSearchResult &&
         mediaSearchResult.length > 0 &&
         mediaSearchResult.map((media) => (
           <button
+            className={styles.card}
             key={media.id}
             onClick={handleClickChangeInput}
             data-name={media.name}

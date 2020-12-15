@@ -1,0 +1,28 @@
+table {
+  margin-top: 10rem;
+  background-color: var(--main-light-color);
+  border-radius: 10px;
+  border-spacing: 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+thead {
+  background-color: var(--main-dark-color);
+  color: white;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+th,
+td {
+  padding: clamp(0.5rem, 2.5vw, 2rem);
+}
+
+tr:nth-child(even) {
+  background-color: #dedede;
+}

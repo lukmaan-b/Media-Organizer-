@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MediaSearchResult } from '../MediaSearchResult/MediaSearchResult';
-
+import styles from './AddBar.module.css';
 let timer;
 
 const AddBar = ({ setMediaList }) => {
@@ -34,23 +34,36 @@ const AddBar = ({ setMediaList }) => {
   }
 
   const handleClickAddMedia = () => {
-    setMediaList((prevState) => [...prevState, selectedMedia]);
+    input && setMediaList((prevState) => [...prevState, selectedMedia]);
   };
 
   return (
     <div>
-      <div>
-        <input type="text" onInput={handleInput} value={input} />
-        <select onChange={handleChange} selected={mediaType}>
-          <option value="games">Games</option>
-          <option disabled value="tv">
-            TV Shows
-          </option>
-          <option disabled value="movies">
-            Movies
-          </option>
-        </select>
-        <button onClick={handleClickAddMedia}>Add</button>
+      <div className={styles.addBarContainer}>
+        <input
+          type="text"
+          onInput={handleInput}
+          value={input}
+          className={styles.searchBar}
+        />
+        <div className={styles.btnGroup}>
+          <select
+            onChange={handleChange}
+            selected={mediaType}
+            className={styles.mediaOption}
+          >
+            <option value="games">Games</option>
+            <option disabled value="tv">
+              TV Shows
+            </option>
+            <option disabled value="movies">
+              Movies
+            </option>
+          </select>
+          <button className={styles.addButton} onClick={handleClickAddMedia}>
+            Add
+          </button>
+        </div>
       </div>
       <div>
         <MediaSearchResult

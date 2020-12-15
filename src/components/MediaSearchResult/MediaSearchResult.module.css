@@ -1,0 +1,19 @@
+.cardContainer {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card {
+  background-color: var(--main-light-color);
+  display: block;
+  padding: 0.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+
+.card:hover {
+  background-color: #e4e4e4;
+}
